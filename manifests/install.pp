@@ -8,7 +8,7 @@ define zf::install($version = $title, $installdir, $zftool)
 
 	$splited     = split($version,'[.]')
 	$major       = $splited[0]
-	$ext         = $major ? {1 => 'tar.gz', 2 => 'tgz'}
+	$ext         = $major ? {'1' => 'tar.gz', '2' => 'tgz'}
 	$pkgname     = "ZendFramework-${version}.${ext}"
 	$zendurl     = "https://packages.zendframework.com/releases/ZendFramework-${version}/${pkgname}"
 	$destination = "${zf::params::srcdir}/${pkgname}"
