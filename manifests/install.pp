@@ -15,11 +15,13 @@ define zf::install($version = $title, $installdir, $zftool)
 	# Params
 
 	# Source directory
-	file {$zf::params::srcdir:
-		ensure => directory,
-		owner  => root,
-		group  => root,
-		mode   => 0755,
+	if ! defined(File[$zf::params::srcdir]) {
+		file {$zf::params::srcdir:
+			ensure => directory,
+			owner  => root,
+			group  => root,
+			mode   => 0755,
+		}
 	}
 	# Source directory
 
