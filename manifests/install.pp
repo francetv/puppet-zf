@@ -20,7 +20,7 @@ define zf::install($version = $title, $installdir, $zftool)
 			ensure => directory,
 			owner  => root,
 			group  => root,
-			mode   => 0755,
+			mode   => '0755',
 		}
 	}
 	# Source directory
@@ -50,7 +50,7 @@ define zf::install($version = $title, $installdir, $zftool)
 		ensure => directory,
 		owner  => root,
 		group  => root,
-		mode   => 0755,
+		mode   => '0755',
 	}
 	exec {'copy-zf':
 		command => "cp -Rf ${zf::params::srcdir}/ZendFramework-${version} ${zf::params::zenddir}/${version}",
